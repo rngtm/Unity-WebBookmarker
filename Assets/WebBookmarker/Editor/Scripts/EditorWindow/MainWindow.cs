@@ -48,11 +48,9 @@ namespace WebBookmarker
                 EditorGUILayout.LabelField(ContentFileNotFound, RedTextLabelStyle);
                 EditorGUI.BeginChangeCheck();
                 m_Data = (BookmarkData)EditorGUILayout.ObjectField(m_Data, typeof(BookmarkData), false);
-                if (EditorGUI.EndChangeCheck())
-                {
-                    OnChangeData();
-                }
+                UpdateTreeView();
             }
+
             if (m_TreeView == null)
             {
                 UpdateTreeView();
@@ -68,11 +66,6 @@ namespace WebBookmarker
                 var rect = GUILayoutUtility.GetLastRect(); // OnGUI以外で呼ぶとエラー
                 PopupWindow.Show(rect, PopupContent);
             }
-        }
-        private void OnChangeData()
-        {
-            m_Data.DeleteEmptyItems();
-            UpdateTreeView();
         }
         private UrlAddPopupContent CreatePopupContent() // ポップアップ作成
         {
@@ -98,6 +91,7 @@ namespace WebBookmarker
         {
             if (m_Data == null) { return; }
             m_Data.DeleteEmptyItems();
+            EditorUtility.SetDirty(m_Data);
 
             m_TreeView = new UrlTreeView(this);
             m_TreeView.SetDeleteButtonAction((Action<UrlTreeViewItem>)((item) =>

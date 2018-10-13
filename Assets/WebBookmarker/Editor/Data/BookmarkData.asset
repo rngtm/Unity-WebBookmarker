@@ -15,3 +15,7 @@ MonoBehaviour:
   m_dataList:
   - Title: GitHub
     URL: https://github.com
+  - Title: Unity Blog
+    URL: https://blogs.unity3d.com/jp/
+  - Title: Stack Overflow
+    URL: https://stackoverflow.com

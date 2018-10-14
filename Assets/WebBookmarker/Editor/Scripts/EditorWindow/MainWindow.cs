@@ -119,11 +119,11 @@ namespace WebBookmarker
                 {
                     StartInsertLast(null);
                 }
-                GUILayout.FlexibleSpace();
-                if (GUILayout.Button("Edit", EditorStyles.toolbarButton))
+                if (GUILayout.Button("Editor", EditorStyles.toolbarButton))
                 {
                     UrlEditWindow.Open();
                 }
+                GUILayout.FlexibleSpace();
             }
             EditorGUILayout.EndHorizontal();
             EditorGUI.EndDisabledGroup();

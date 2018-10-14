@@ -8,8 +8,8 @@ namespace WebBookmarker
 {
     public class MainWindow : EditorWindow
     {
-        readonly GUIContent ContentFileNotFound = new GUIContent("bookmark data not found");
         readonly Color DarkRed = new Color(0.9f, 0f, 0f, 1f);
+        readonly GUIContent ContentFileNotFound = new GUIContent("bookmark data not found");
         private GUIStyle m_RedTextLabelStyle = null;
         private GUIStyle RedTextLabelStyle => m_RedTextLabelStyle ?? (m_RedTextLabelStyle = CustomUI.CreateColorLabelStyle(DarkRed));
 
@@ -120,6 +120,10 @@ namespace WebBookmarker
                     StartInsertLast(null);
                 }
                 GUILayout.FlexibleSpace();
+                if (GUILayout.Button("Edit", EditorStyles.toolbarButton))
+                {
+                    UrlEditWindow.Open();
+                }
             }
             EditorGUILayout.EndHorizontal();
             EditorGUI.EndDisabledGroup();

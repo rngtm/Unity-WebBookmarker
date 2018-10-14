@@ -17,10 +17,10 @@ namespace WebBookmarker
             m_dataList.Insert(index, data);
         }
 
-        //public void InsertLast(UrlData data)
-        //{
-        //    m_dataList.Add(data);
-        //}
+        public IList GetList()
+        {
+            return m_dataList;
+        }
 
         internal IEnumerable<UrlData> GetURLAll()
         {
